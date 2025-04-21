@@ -13,7 +13,7 @@ const HomePic = () => {
       className="h-full flex items-center justify-center"
     >
       <img
-        src="../../public/images/addy.png"
+        src="/public/images/addy.png"
         alt="Adarsh Shukla"
         className="max-h-[260px] w-auto"
       />
