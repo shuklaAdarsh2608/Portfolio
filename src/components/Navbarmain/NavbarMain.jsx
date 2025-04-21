@@ -1,33 +1,43 @@
-import React from 'react'
-import ReactDom from 'react-dom'
-import NavbarLinks from './NavbarLinks'
-import NavbarLogo from './NavbarLogo'
-import NavbarBtn from './NavbarBtn'
+import React, { useState } from 'react';
+import NavbarLinks from './NavbarLinks';
+import NavbarLogo from './NavbarLogo';
+import NavbarBtn from './NavbarBtn';
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from 'react'
 
 const NavbarMain = () => {
-    const[menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
-    };  
-  return (
-    <nav className="max-w-[1300px] mx-auto px-4 w-full fixed left-[50%] -translate-x-[50%] z-20 flex gap-2 mt-2">
-        <div className= " flex justify-between w-full max-w-[1200px] mx-auto bg-Black items-center p-5 rounded-r-full rounded-l-full border-[0.5px] border-Orange ">
-        <NavbarLogo />
-        <div className={`${menuOpen? "sm:block" : "sm:hidden"} lg:block` }>
-      <NavbarLinks />
-      </div>
-      <NavbarBtn />
-      </div>
-      <div className="flex lg:hidden sm:block p-5 bg-Black items-center justify-center rounded-full border-[0.5px] border-Orange">
-       <button className="text-2xl p-3 border border-Orange rounded-full text-White" 
-       onClick={toggleMenu}> 
-       <GiHamburgerMenu /> 
-      </button>  
-      </div>
-    </nav>
-  )
-}
+    };
 
-export default NavbarMain
+    return (
+        <nav className="w-full fixed top-0 left-0 z-20 px-4 py-2 bg-Black border-b border-Orange">
+            <div className="max-w-[1300px] mx-auto flex items-center justify-between gap-4">
+                {/* Logo */}
+                <NavbarLogo />
+
+                {/* "Hire Me" Button – always visible */}
+                <div className="sm:block">
+                    <NavbarBtn />
+                </div>
+
+                {/* Hamburger Icon – only visible on small screens */}
+                <button
+                    className="text-2xl p-2 border border-Orange rounded-full text-White sm:hidden"
+                    onClick={toggleMenu}
+                >
+                    <GiHamburgerMenu />
+                </button>
+            </div>
+
+            {/* Mobile Menu Dropdown */}
+            {menuOpen && (
+                <div className="sm:hidden mt-2">
+                    <NavbarLinks />
+                </div>
+            )}
+        </nav>
+    );
+};
+
+export default NavbarMain;
