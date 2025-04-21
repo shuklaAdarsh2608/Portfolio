@@ -6,7 +6,7 @@ const ContactMeRight = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-12">
       <img
-        src="../../public/images/Img4.jpg"
+        src="/public/Img4.jpg"
         alt="Contact"
         className="max-w-[300px]"
       />
