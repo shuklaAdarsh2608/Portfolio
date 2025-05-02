@@ -3,7 +3,7 @@ import React from 'react'
 const ExperienceTopMiddle = () => {
   return (
     <div>
-      <img src="/public/comp.png" alt="Computer" />
+      <img src="src/assets/images/comp.png" alt="Computer" />
     </div>
   )
 }
